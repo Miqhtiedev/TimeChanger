@@ -10,3 +10,5 @@ classes
 # gradle
 build
 .gradle
+
+run
