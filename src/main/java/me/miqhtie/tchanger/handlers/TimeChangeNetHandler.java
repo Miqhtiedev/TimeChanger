@@ -1,5 +1,6 @@
-package me.miqhtie.tchanger;
+package me.miqhtie.tchanger.handlers;
 
+import me.miqhtie.tchanger.TimeChange;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.network.NetHandlerPlayClient;

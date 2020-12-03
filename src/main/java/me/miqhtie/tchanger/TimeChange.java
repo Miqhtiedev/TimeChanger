@@ -1,5 +1,7 @@
 package me.miqhtie.tchanger;
 
+import me.miqhtie.tchanger.commands.TimeChangerCommand;
+import me.miqhtie.tchanger.handlers.TimeChangeNetHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.INetHandler;
@@ -12,6 +14,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import util.TImeChangerConfig;
+import util.TimeType;
 
 
 @Mod(modid = TimeChange.MODID, name = TimeChange.NAME, version = TimeChange.VERSION, clientSideOnly = TimeChange.clientSideOnly)
