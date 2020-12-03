@@ -1,0 +1,16 @@
+[
+{
+  "modid": "timechanger",
+  "name": "TimeChanger",
+  "description": "Time Changer mod for minecraft.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Miqhtie"],
+  "credits": "2pi for making the original mod",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
