@@ -17,7 +17,7 @@ public class TimeChangerCommand extends CommandBase {
 
     @Override
     public String getCommandUsage(ICommandSender iCommandSender) {
-        return "/" + getCommandName() + " (day,sunset,night,fast,vanilla)";
+        return "/" + getCommandName() + " (day,sunset,night,fast,vanilla,fastmultiplier)";
     }
 
     @Override
@@ -37,6 +37,19 @@ public class TimeChangerCommand extends CommandBase {
             TimeChange.TIME_TYPE = TimeType.FAST;
         } else if (args[0].equalsIgnoreCase("vanilla")) {
             TimeChange.TIME_TYPE = TimeType.VANILLA;
+        } else if(args[0].equalsIgnoreCase("fastmultiplier") && args.length == 2){
+            double multiplier;
+            try{
+                multiplier = Double.valueOf(args[1]);
+            } catch (NumberFormatException e) {
+                sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid number"));
+                return;
+            }
+
+            TimeChangerConfig.setFastMultiplier(multiplier);
+            TimeChange.fastTimeMultiplier = multiplier;
+            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set multiplier to " + multiplier));
+            return;
         } else {
             sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid args"));
         }

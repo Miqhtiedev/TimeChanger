@@ -30,7 +30,7 @@ public class TimeChange {
      */
     public static final String MODID = "timechanger";
     public static final String NAME = "TimeChanger";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "1.1";
     public static final boolean clientSideOnly = true;
 
 
@@ -49,6 +49,8 @@ public class TimeChange {
         } else if (time.equalsIgnoreCase("vanilla")) {
             TIME_TYPE = TimeType.VANILLA;
         }
+
+        fastTimeMultiplier = TimeChangerConfig.getFastMultiplier();
     }
 
     @EventHandler
