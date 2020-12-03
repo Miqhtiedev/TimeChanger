@@ -4,7 +4,7 @@ import me.miqhtie.tchanger.TimeChange;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
-public class TImeChangerConfig {
+public class TimeChangerConfig {
     private static final Configuration config = TimeChange.getConfig();
 
     public static String getTime(){

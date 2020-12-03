@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import me.miqhtie.tchanger.util.TImeChangerConfig;
+import me.miqhtie.tchanger.util.TimeChangerConfig;
 import me.miqhtie.tchanger.util.TimeType;
 
 
@@ -37,7 +37,7 @@ public class TimeChange {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
         config = new Configuration(event.getSuggestedConfigurationFile());
-        String time = TImeChangerConfig.getTime();
+        String time = TimeChangerConfig.getTime();
         if (time.equalsIgnoreCase("day")) {
             TIME_TYPE = TimeType.DAY;
         } else if (time.equalsIgnoreCase("sunset")) {

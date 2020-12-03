@@ -1,6 +1,6 @@
 package me.miqhtie.tchanger.commands;
 
-import me.miqhtie.tchanger.util.TImeChangerConfig;
+import me.miqhtie.tchanger.util.TimeChangerConfig;
 import me.miqhtie.tchanger.TimeChange;
 import me.miqhtie.tchanger.util.TimeType;
 import net.minecraft.command.CommandBase;
@@ -43,7 +43,7 @@ public class TimeChangerCommand extends CommandBase {
 
 
         sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0].toUpperCase()));
-        TImeChangerConfig.setTime(args[0].toLowerCase());
+        TimeChangerConfig.setTime(args[0].toLowerCase());
     }
 
     @Override
