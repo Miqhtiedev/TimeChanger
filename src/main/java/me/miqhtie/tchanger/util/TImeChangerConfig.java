@@ -1,4 +1,4 @@
-package util;
+package me.miqhtie.tchanger.util;
 
 import me.miqhtie.tchanger.TimeChange;
 import net.minecraftforge.common.config.Configuration;

@@ -1,8 +1,8 @@
 package me.miqhtie.tchanger.commands;
 
-import util.TImeChangerConfig;
+import me.miqhtie.tchanger.util.TImeChangerConfig;
 import me.miqhtie.tchanger.TimeChange;
-import util.TimeType;
+import me.miqhtie.tchanger.util.TimeType;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;

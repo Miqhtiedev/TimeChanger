@@ -14,8 +14,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import util.TImeChangerConfig;
-import util.TimeType;
+import me.miqhtie.tchanger.util.TImeChangerConfig;
+import me.miqhtie.tchanger.util.TimeType;
 
 
 @Mod(modid = TimeChange.MODID, name = TimeChange.NAME, version = TimeChange.VERSION, clientSideOnly = TimeChange.clientSideOnly)

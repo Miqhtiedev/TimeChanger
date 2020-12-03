@@ -1,4 +1,4 @@
-package util;
+package me.miqhtie.tchanger.util;
 
 public enum TimeType {
     DAY,
