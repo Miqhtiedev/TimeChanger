@@ -52,6 +52,7 @@ public class TimeChangerCommand extends CommandBase {
             return;
         } else {
             sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid args"));
+            return;
         }
 
 

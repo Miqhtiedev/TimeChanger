@@ -18,21 +18,17 @@ import me.miqhtie.tchanger.util.TimeChangerConfig;
 import me.miqhtie.tchanger.util.TimeType;
 
 
-@Mod(modid = TimeChange.MODID, name = TimeChange.NAME, version = TimeChange.VERSION, clientSideOnly = TimeChange.clientSideOnly)
+@Mod(
+    name = "TimeChanger",
+    modid = "timechanger",
+    version = "1.1",
+    clientSideOnly = true
+)
 public class TimeChange {
 
     public static TimeType TIME_TYPE;
     public static double fastTimeMultiplier;
     private static Configuration config;
-
-    /*
-    Mod Info
-     */
-    public static final String MODID = "timechanger";
-    public static final String NAME = "TimeChanger";
-    public static final String VERSION = "1.1";
-    public static final boolean clientSideOnly = true;
-
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
