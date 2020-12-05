@@ -1,8 +1,6 @@
 package me.miqhtie.tchanger.commands;
 
 import me.miqhtie.tchanger.util.TimeChangerConfig;
-import me.miqhtie.tchanger.TimeChange;
-import me.miqhtie.tchanger.util.TimeType;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -24,19 +22,25 @@ public class TimeChangerCommand extends CommandBase {
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
         if (args.length == 0) {
             sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid arguments"));
+            System.out.println(TimeChangerConfig.getTime());
             return;
         }
 
         if (args[0].equalsIgnoreCase("day")) {
-            TimeChange.TIME_TYPE = TimeType.DAY;
+            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0].toUpperCase()));
+            TimeChangerConfig.setTime("6000");
         } else if (args[0].equalsIgnoreCase("sunset")) {
-            TimeChange.TIME_TYPE = TimeType.SUNSET;
+            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0].toUpperCase()));
+            TimeChangerConfig.setTime("22880");
         } else if (args[0].equalsIgnoreCase("night")) {
-            TimeChange.TIME_TYPE = TimeType.NIGHT;
+            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0].toUpperCase()));
+            TimeChangerConfig.setTime("18000");
         } else if (args[0].equalsIgnoreCase("fast")) {
-            TimeChange.TIME_TYPE = TimeType.FAST;
+            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0].toUpperCase()));
+            TimeChangerConfig.setTime("fast");
         } else if (args[0].equalsIgnoreCase("vanilla")) {
-            TimeChange.TIME_TYPE = TimeType.VANILLA;
+            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0].toUpperCase()));
+            TimeChangerConfig.setTime("vanilla");
         } else if(args[0].equalsIgnoreCase("fastmultiplier") && args.length == 2){
             double multiplier;
             try{
@@ -45,19 +49,28 @@ public class TimeChangerCommand extends CommandBase {
                 sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid number"));
                 return;
             }
-
             TimeChangerConfig.setFastMultiplier(multiplier);
-            TimeChange.fastTimeMultiplier = multiplier;
             sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set multiplier to " + multiplier));
             return;
-        } else {
-            sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid args"));
-            return;
+        } else{
+            Double d;
+            try{
+                //Makes sure input is a number
+                d = Double.parseDouble(args[0]);
+
+                if(d < 1 || d > 24000){
+                    sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid args. Number must be between 1-24000"));
+                    return;
+                }
+
+                TimeChangerConfig.setTime(args[0]);
+                sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0]));
+
+            } catch (NumberFormatException e) {
+                sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Error: Invalid args"));
+                return;
+            }
         }
-
-
-        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + "Set time to " + args[0].toUpperCase()));
-        TimeChangerConfig.setTime(args[0].toLowerCase());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package me.miqhtie.tchanger.handlers;
 
 import me.miqhtie.tchanger.TimeChange;
+import me.miqhtie.tchanger.util.TimeChangerConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.network.NetHandlerPlayClient;
@@ -137,21 +138,14 @@ public class TimeChangeNetHandler extends NetHandlerPlayClient {
     }
 
     public void func_147285_a(final S03PacketTimeUpdate packet) {
-        switch (TimeChange.TIME_TYPE) {
-            case DAY: {
-                this.parent.handleTimeUpdate(new S03PacketTimeUpdate(packet.getWorldTime(), -6000L, true));
-            }
-            case SUNSET: {
-                this.parent.handleTimeUpdate(new S03PacketTimeUpdate(packet.getWorldTime(), -22880L, true));
-            }
-            case NIGHT: {
-                this.parent.handleTimeUpdate(new S03PacketTimeUpdate(packet.getWorldTime(), -18000L, true));
-            }
-            case VANILLA: {
-                this.parent.handleTimeUpdate(packet);
-                break;
-            }
-        }
+        String time = TimeChangerConfig.getTime();
+        if(time.equalsIgnoreCase("vanilla")){
+            this.parent.handleTimeUpdate(packet);
+            return;
+        } else if (time.equalsIgnoreCase("fast")) return;
+
+        double ticks = Double.parseDouble(time);
+        this.parent.handleTimeUpdate(new S03PacketTimeUpdate(packet.getWorldTime(), (long)-ticks, true));
     }
 
     public void func_147271_a(final S05PacketSpawnPosition p_147271_1_) {
