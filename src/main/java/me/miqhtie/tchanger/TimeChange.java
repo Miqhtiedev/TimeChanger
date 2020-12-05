@@ -20,7 +20,7 @@ import me.miqhtie.tchanger.util.TimeChangerConfig;
 @Mod(
     name = "TimeChanger",
     modid = "timechanger",
-    version = "1.2",
+    version = "1.2.1",
     clientSideOnly = true
 )
 public class TimeChange {
@@ -30,6 +30,10 @@ public class TimeChange {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
         config = new Configuration(event.getSuggestedConfigurationFile());
+        if(TimeChangerConfig.getTime().equalsIgnoreCase("day") ||TimeChangerConfig.getTime().equalsIgnoreCase("night") || TimeChangerConfig.getTime().equalsIgnoreCase("sunset")){ // Replace legacy config with new config system added in 1.2
+            System.out.println("Detected usage of legacy configuration system. Resetting config");
+            TimeChangerConfig.setTime("vanilla");
+        }
     }
 
     @EventHandler
