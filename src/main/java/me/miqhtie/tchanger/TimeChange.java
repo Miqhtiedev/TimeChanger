@@ -20,7 +20,7 @@ import me.miqhtie.tchanger.util.TimeChangerConfig;
 @Mod(
     name = "TimeChanger",
     modid = "timechanger",
-    version = "1.1",
+    version = "1.2",
     clientSideOnly = true
 )
 public class TimeChange {
